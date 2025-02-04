@@ -1,7 +1,7 @@
 FROM node:18.12.1
 
 WORKDIR /usr/src/app
-COPY package.json 
+COPY package.json ./
 RUN yarn global add typescript
 
 RUN yarn install --frozen-lockfile
