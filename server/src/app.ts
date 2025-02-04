@@ -2,7 +2,7 @@ import express, { json } from "express";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
-import routers from "./api/routes";
+// import routers from "./api/routes";
 
 const app = express();
 
@@ -28,7 +28,7 @@ app.use(helmet());
 app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms")
 );
-app.use(routers);
+// app.use(routers);
 app.get("/hello", (req, res) => {
   console.log(req.body);
   res.send("Hello World");
