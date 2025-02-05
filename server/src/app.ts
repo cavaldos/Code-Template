@@ -33,8 +33,9 @@ app.get("/hello", (req, res) => {
   console.log(req.body);
   res.send("Hello World");
 });
-app.get("/", (req, res) => {
-  console.log(req.body);
-  res.send("Hello , Welcome to my server");
+app.get("/", (_req, res) => {
+  res.json({
+    message: "Hello, connected to server",
+  });
 });
 export default app;
