@@ -26,3 +26,10 @@ services:
     environment:
       - NODE_ENV=production
       - VITE_API_URL=http://server-tp:3000
+    depends_on:
+      - server-tp
+    restart: always
+
+networks:
+  app_network:
+    driver: bridge
