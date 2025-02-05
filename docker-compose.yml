@@ -10,12 +10,7 @@ services:
       - app_network
     environment:
       - NODE_ENV=production
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
+    restart: always
 
   client-tp:
     build:
@@ -30,9 +25,8 @@ services:
       - NODE_ENV=production
       - VITE_API_URL=http://server-tp:3000
     depends_on:
-      server-tp:
-        condition: service_healthy
-    restart: unless-stopped
+      - server-tp
+    restart: always
 
 networks:
   app_network:

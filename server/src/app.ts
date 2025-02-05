@@ -29,13 +29,12 @@ app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms")
 );
 // app.use(routers);
-app.get("/hello", (req, res) => {
-  console.log(req.body);
-  res.send("Hello World");
-});
+
 app.get("/", (_req, res) => {
   res.json({
     message: "Hello, connected to server",
   });
 });
+
+
 export default app;
