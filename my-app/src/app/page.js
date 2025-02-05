@@ -1,11 +1,11 @@
+'use client';
 import { useState, useEffect } from 'react'
-import './App.css'
-import AxiosInstance from '../src/service/axios.config'
+import AxiosInstance from '@/service/axios.config'
 
 function App() {
   const [message, setMessage] = useState('')
   const [error, setError] = useState(null)
-  console.log(import.meta.env.VITE_API_URL || 'Failed to load data. Please try again later.')
+  console.log(process.env.SERVER_HOST || 'Failed to load data. Please try again later.')
   useEffect(() => {
     AxiosInstance.get('/')
       .then(res => {
@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       <div>
-        <p>{import.meta.env.VITE_API_URL || 'Failed '}</p>
+        <p>{import.meta.env.SERVER_HOST || 'Failed '}</p>
         {error ? (
           <h1 style={{ color: 'red' }}>{error}</h1>
         ) : (
