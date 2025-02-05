@@ -36,5 +36,20 @@ app.get("/", (_req, res) => {
   });
 });
 
-
+app.get("/healthcheck", (_req, res) => {
+  try {
+    res.status(200).json({
+      status: "healthy",
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime(),
+      memoryUsage: process.memoryUsage(),
+    });
+  } catch (error) {
+    res.status(503).json({
+      status: "unhealthy",
+      timestamp: new Date().toISOString(),
+      error: error.message,
+    });
+  }
+});
 export default app;
