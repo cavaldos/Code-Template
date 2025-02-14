@@ -3,7 +3,6 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
-
     container_name: client-tp
     ports:
       - "5173:5173"
